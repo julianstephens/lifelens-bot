@@ -1,7 +1,6 @@
-// require("../src/index");
-import bot from "@bot/index";
 import { VercelRequest, VercelResponse } from "@vercel/node";
 import { webhookCallback } from "grammy";
+import bot from "../src/core/bot/index";
 import "../src/index";
 
 // Helper method to wait for a middleware to execute before continuing
