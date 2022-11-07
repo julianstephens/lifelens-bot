@@ -1,9 +1,9 @@
 {
   "version": 2,
-  "routes": [
+  "redirects": [
     {
-      "src": "/.*",
-      "dest": "api/index.ts"
+      "source": "/*",
+      "destination": "api/index.ts"
     }
   ]
 }

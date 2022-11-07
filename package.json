@@ -5,10 +5,10 @@
   "main": "api/index.ts",
   "scripts": {
     "build": "tsc",
-    "dev": "nodemon -r tsconfig-paths/register src/index.ts",
-    "seedDur": "ts-node -r tsconfig-paths/register src/seedDuration.ts",
+    "dev": "nodemon -r tsconfig-paths/register public/src/index.ts",
+    "seedDur": "ts-node -r tsconfig-paths/register public/src/seedDuration.ts",
     "lint": "eslint . --cache --ext .ts,.js",
-    "format": "prettier --write 'src/**/*.ts'"
+    "format": "prettier --write 'public/src/**/*.ts'"
   },
   "repository": {
     "type": "git",
@@ -44,25 +44,25 @@
   },
   "_moduleAliases": {
     "@commands": [
-      "src/commands"
+      "public/src/commands"
     ],
     "@convos": [
-      "src/convos"
+      "public/src/convos"
     ],
     "@keyboards": [
-      "src/keyboards"
+      "public/src/keyboards"
     ],
     "@models": [
-      "src/models"
+      "public/src/models"
     ],
     "@utils": [
-      "src/utils"
+      "public/src/utils"
     ],
     "@bot": [
-      "src/core/bot"
+      "public/src/core/bot"
     ],
     "@db": [
-      "src/core/db"
+      "public/src/core/db"
     ]
   }
 }
