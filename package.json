@@ -1,45 +1,45 @@
 {
-    "name": "grammy-vercel-boilerplate",
-    "version": "1.0.0",
-    "description": "Grammy boilerplate to develop and host telegram bots on Vercel",
-    "main": "api/index.ts",
-    "scripts": {
-        "build": "tsc",
-        "dev": "nodemon -r tsconfig-paths/register public/src/index.ts",
-        "seedDur": "ts-node -r tsconfig-paths/register public/src/seedDuration.ts",
-        "lint": "eslint . --cache --ext .ts,.js",
-        "format": "prettier --write 'public/src/**/*.ts'"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/julianstephens/lifelens-bot.git"
-    },
-    "keywords": [
-        "telegram-bot",
-        "vercel",
-        "vercel-now",
-        "grammy"
-    ],
-    "dependencies": {
-        "@grammyjs/conversations": "^1.0.3",
-        "@vercel/node": "^2.6.1",
-        "grammy": "^1.6.1",
-        "module-alias": "^2.2.2",
-        "moment": "^2.29.4",
-        "mongodb": "^4.11.0"
-    },
-    "devDependencies": {
-        "@types/node": "^17.0.5",
-        "@typescript-eslint/eslint-plugin": "^5.8.1",
-        "@typescript-eslint/parser": "^5.8.1",
-        "dotenv": "^10.0.0",
-        "eslint": "^8.5.0",
-        "eslint-config-prettier": "^8.3.0",
-        "eslint-plugin-prettier": "^4.0.0",
-        "nodemon": "^2.0.15",
-        "prettier": "^2.5.1",
-        "ts-node": "^10.9.1",
-        "tsconfig-paths": "^4.1.0",
-        "typescript": "^4.5.4"
-    }
+  "name": "grammy-vercel-boilerplate",
+  "version": "1.0.0",
+  "description": "Grammy boilerplate to develop and host telegram bots on Vercel",
+  "main": "api/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon -r tsconfig-paths/register src/index.ts",
+    "seedDur": "ts-node -r tsconfig-paths/register public/src/seedDuration.ts",
+    "lint": "eslint . --cache --ext .ts,.js",
+    "format": "prettier --write 'public/src/**/*.ts'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julianstephens/lifelens-bot.git"
+  },
+  "keywords": [
+    "telegram-bot",
+    "vercel",
+    "vercel-now",
+    "grammy"
+  ],
+  "dependencies": {
+    "@grammyjs/conversations": "^1.0.3",
+    "@vercel/node": "^2.6.1",
+    "grammy": "^1.6.1",
+    "module-alias": "^2.2.2",
+    "moment": "^2.29.4",
+    "mongodb": "^4.11.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.5",
+    "@typescript-eslint/eslint-plugin": "^5.8.1",
+    "@typescript-eslint/parser": "^5.8.1",
+    "dotenv": "^10.0.0",
+    "eslint": "^8.5.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.0",
+    "typescript": "^4.5.4"
+  }
 }
