@@ -1,4 +1,9 @@
 {
   "version": 2,
-  "cleanUrls": true
+  "routes": [
+    {
+      "src": "/.*",
+      "dest": "api/index.ts"
+    }
+  ]
 }
