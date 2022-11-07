@@ -1,3 +1,5 @@
+import "module-alias/register";
+//leave here
 import bot from "@bot/index";
 import commands from "@commands/index";
 import evening from "@convos/evening";
@@ -25,4 +27,5 @@ bot.catch(errorHandler);
 
 !config.isProduction ? development(bot) : production(bot);
 
-export {};
+export { };
+
