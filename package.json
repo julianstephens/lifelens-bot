@@ -2,6 +2,7 @@
   "name": "grammy-vercel-boilerplate",
   "version": "1.0.0",
   "description": "Grammy boilerplate to develop and host telegram bots on Vercel",
+  "main": "api/index.ts",
   "scripts": {
     "build": "tsc",
     "dev": "nodemon -r tsconfig-paths/register src/index.ts",
@@ -42,26 +43,26 @@
     "typescript": "^4.5.4"
   },
   "_moduleAliases": {
-    "@commands/*": [
-      "public/src/commands/*"
+    "@commands": [
+      "src/commands"
     ],
-    "@convos/*": [
-      "public/src/convos/*"
+    "@convos": [
+      "src/convos"
     ],
-    "@keyboards/*": [
-      "public/src/keyboards/*"
+    "@keyboards": [
+      "src/keyboards"
     ],
-    "@models/*": [
-      "public/src/models/*"
+    "@models": [
+      "src/models"
     ],
-    "@utils/*": [
-      "public/src/utils/*"
+    "@utils": [
+      "src/utils"
     ],
-    "@bot/*": [
-      "public/src/core/bot/*"
+    "@bot": [
+      "src/core/bot"
     ],
-    "@db/*": [
-      "public/src/core/db/*"
+    "@db": [
+      "src/core/db"
     ]
   }
 }
