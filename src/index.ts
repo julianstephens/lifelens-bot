@@ -20,10 +20,11 @@ bot.use(createConversation(morning));
 bot.use(createConversation(evening));
 bot.use(createConversation(week));
 bot.use(commands);
-bot.api.setMyCommands(BotCommands);
+(async () => {
+    await bot.api.setMyCommands(BotCommands);
+})();
 bot.catch(errorHandler);
 
 !config.isProduction ? development(bot) : production(bot);
 
-export { };
-
+export {};
