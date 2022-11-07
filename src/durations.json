@@ -1,0 +1,18 @@
+{
+    "Before 6AM:Before 10PM": "~ 8",
+    "Before 6AM:Between 10PM and 11PM": "< 7",
+    "Before 6AM:Between 11PM and 12AM": "< 6",
+    "Before 6AM:After 12AM": "> 6",
+    "Between 6AM and 7AM:Before 10PM": "> 9",
+    "Between 6AM and 7AM:Between 10PM and 11PM": "7 - 9",
+    "Between 6AM and 7AM:Between 11PM and 12AM": "6 - 8",
+    "Between 6AM and 7AM:After 12AM": "< 7",
+    "Between 7AM and 9AM:Before 10PM": "> 11",
+    "Between 7AM and 9AM:Between 10PM and 11PM": "8 - 11",
+    "Between 7AM and 9AM:Between 11PM and 12AM": "7 - 10",
+    "Between 7AM and 9AM:After 12AM": "< 9",
+    "After 9AM:Before 10PM": "< 11",
+    "After 9AM:Between 10PM and 11PM": "> 10",
+    "After 9AM:Between 11PM and 12AM": "> 9",
+    "After 9AM:After 12AM": "~ 9"
+}

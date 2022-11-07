@@ -1,15 +1,17 @@
-import { Bot, Context } from "grammy";
+import { LensContext } from "@models/index";
+import { Bot } from "grammy";
+import config from "./config";
 
-const production = async (bot: Bot<Context>): Promise<void> => {
+const production = async (bot: Bot<LensContext>): Promise<void> => {
     try {
-        await bot.api.setWebhook(`${process.env.VERCEL_URL}/api/index`);
+        await bot.api.setWebhook(config.telegram.webhookURL);
         console.log(`[SERVER] Bot starting webhook`);
     } catch (e) {
         console.error(e);
     }
 };
 
-const development = async (bot: Bot<Context>): Promise<void> => {
+const development = async (bot: Bot<LensContext>): Promise<void> => {
     try {
         await bot.api.deleteWebhook();
         console.log("[SERVER] Bot starting polling");
