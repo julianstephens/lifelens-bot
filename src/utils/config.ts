@@ -6,6 +6,7 @@ const config = {
     telegram: {
         token: process.env.TOKEN || "xxxx",
         webhookURL: `${process.env.WEBHOOK_DOMAIN}/api/index` || "xxxx",
+        allowedUsers: process.env.ALLOWED_USERS?.split(" ") || "xxxx",
     },
     db: {
         mongoURI: process.env.MONGO_URI ?? "xxxx",

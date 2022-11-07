@@ -5,7 +5,7 @@ import fitness from "./fitness";
 const composer = new Composer<LensContext>();
 
 composer.command("help", async (ctx: LensContext) => {
-    const info = BotCommands.reduce((_acc, val) => `/${val.command} - ${val.description}\n`, "");
+    const info = BotCommands.reduce((acc, val) => `${acc}/${val.command} - ${val.description}\n`, "");
     await ctx.reply(`Here's all the things I can do!\n\n${info}`);
 });
 composer.command(Commands.fitness, fitness);
