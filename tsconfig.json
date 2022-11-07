@@ -11,15 +11,6 @@
         "esModuleInterop": true,
         "noImplicitAny": false,
         "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true,
-        "paths": {
-            "@commands/*": ["src/commands/*"],
-            "@convos/*": ["src/convos/*"],
-            "@keyboards/*": ["src/keyboards/*"],
-            "@models/*": ["src/models/*"],
-            "@utils/*": ["src/utils/*"],
-            "@bot/*": ["src/core/bot/*"],
-            "@db/*": ["src/core/db/*"]
-        }
+        "forceConsistentCasingInFileNames": true
     }
 }

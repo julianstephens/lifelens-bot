@@ -1,5 +1,5 @@
-import DBContext from "@db/index";
-import { LensContext } from "@models/index";
+import DBContext from "../../core/db/index";
+import { LensContext } from "../../models/index";
 
 let db: DBContext;
 DBContext.getInstance().then((instance) => {

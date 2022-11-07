@@ -1,5 +1,5 @@
-import { LensContext } from "@models/index";
 import { Middleware } from "grammy";
+import { LensContext } from "../models/index";
 import config from "./config";
 
 const auth: Middleware<LensContext> = async (ctx: LensContext, next: any) => {

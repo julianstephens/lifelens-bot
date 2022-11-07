@@ -1,6 +1,6 @@
-import { ICollections, IEvening, IMood, IMorning, IWeek } from "@models/index";
-import config from "@utils/config";
 import { Db, MongoClient } from "mongodb";
+import { ICollections, IEvening, IMood, IMorning, IWeek } from "../../models/index";
+import config from "../../utils/config";
 
 let instance: any = null;
 

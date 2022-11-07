@@ -1,6 +1,6 @@
-import DBContext from "@db/index";
-import { IMood, LensContext, LensConvo } from "@models/index";
 import moment from "moment";
+import DBContext from "../core/db/index";
+import { IMood, LensContext, LensConvo } from "../models/index";
 
 let db: DBContext;
 DBContext.getInstance().then((instance) => {

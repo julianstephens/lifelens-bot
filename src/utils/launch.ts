@@ -1,5 +1,5 @@
-import { LensContext } from "@models/index";
 import { Bot } from "grammy";
+import { LensContext } from "../models/index";
 import config from "./config";
 
 const production = async (bot: Bot<LensContext>): Promise<void> => {

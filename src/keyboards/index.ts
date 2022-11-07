@@ -1,5 +1,5 @@
-import { AnxietyOpts, BedTimeOpts, FutureOpts, HealthyOpts, IntellectOpts, ProgressOpts, WakeTimeOpts } from "@models/index";
 import { InlineKeyboard } from "grammy";
+import { AnxietyOpts, BedTimeOpts, FutureOpts, HealthyOpts, IntellectOpts, ProgressOpts, WakeTimeOpts } from "../models/index";
 
 const makeKB = (kb: InlineKeyboard, opts: any) => {
     Object.keys(opts).forEach((k) => {

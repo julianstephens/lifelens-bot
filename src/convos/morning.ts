@@ -1,8 +1,8 @@
-import DBContext from "@db/index";
-import { bedKB, binaryKB, wakeKB } from "@keyboards/index";
-import { BedTimeOpts, IMorning, LensContext, LensConvo, WakeTimeOpts } from "@models/index";
 import moment from "moment";
+import DBContext from "../core/db/index";
 import * as durations from "../durations.json";
+import { bedKB, binaryKB, wakeKB } from "../keyboards/index";
+import { BedTimeOpts, IMorning, LensContext, LensConvo, WakeTimeOpts } from "../models/index";
 
 let db: DBContext;
 DBContext.getInstance().then((instance) => {

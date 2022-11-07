@@ -1,7 +1,7 @@
-import DBContext from "@db/index";
-import { anxietyKB, binaryKB, excitedKB, healthyKB } from "@keyboards/index";
-import { AnxietyOpts, FutureOpts, HealthyOpts, IEvening, LensContext, LensConvo } from "@models/index";
 import moment from "moment";
+import DBContext from "../core/db/index";
+import { anxietyKB, binaryKB, excitedKB, healthyKB } from "../keyboards/index";
+import { AnxietyOpts, FutureOpts, HealthyOpts, IEvening, LensContext, LensConvo } from "../models/index";
 
 let db: DBContext;
 DBContext.getInstance().then((instance) => {

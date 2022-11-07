@@ -1,5 +1,5 @@
-import { BotCommands, Commands, LensContext } from "@models/index";
 import { Composer } from "grammy";
+import { BotCommands, Commands, LensContext } from "../models/index";
 import fitness from "./fitness";
 
 const composer = new Composer<LensContext>();

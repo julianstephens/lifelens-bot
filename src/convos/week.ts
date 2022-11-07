@@ -1,7 +1,7 @@
-import DBContext from "@db/index";
-import { binaryKB, intellectKB, progressKB } from "@keyboards/index";
-import { IWeek, LensContext, LensConvo, ProgressOpts } from "@models/index";
 import moment from "moment";
+import DBContext from "../core/db/index";
+import { binaryKB, intellectKB, progressKB } from "../keyboards/index";
+import { IWeek, LensContext, LensConvo, ProgressOpts } from "../models/index";
 
 let db: DBContext;
 DBContext.getInstance().then((instance) => {
