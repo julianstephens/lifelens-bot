@@ -19,7 +19,7 @@ function runMiddleware(req: VercelRequest, res: VercelResponse, fn: any) {
 
 async function handler(req: VercelRequest, res: VercelResponse) {
     // Run the middleware
-    await runMiddleware(req, res, webhookCallback(bot));
+    await runMiddleware(req, res, webhookCallback(bot, "http"));
 }
 
 export default handler;
