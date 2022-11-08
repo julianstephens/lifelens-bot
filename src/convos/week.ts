@@ -3,10 +3,8 @@ import DBContext from "../core/db/index";
 import { binaryKB, intellectKB, progressKB } from "../keyboards/index";
 import { IWeek, LensContext, LensConvo, ProgressOpts } from "../models/index";
 
-let db: DBContext;
-DBContext.getInstance().then((instance) => {
-    db = instance;
-});
+const db: DBContext = DBContext.getInstance();
+
 const week = async (conversation: LensConvo, ctx: LensContext) => {
     let week: IWeek = { date: moment().startOf("w").unix() };
 

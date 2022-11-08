@@ -4,10 +4,8 @@ import * as durations from "../durations.json";
 import { bedKB, binaryKB, wakeKB } from "../keyboards/index";
 import { BedTimeOpts, IMorning, LensContext, LensConvo, WakeTimeOpts } from "../models/index";
 
-let db: DBContext;
-DBContext.getInstance().then((instance) => {
-    db = instance;
-});
+const db: DBContext = DBContext.getInstance();
+
 const morning = async (conversation: LensConvo, ctx: LensContext) => {
     let morning: IMorning = { date: moment().startOf("d").unix() };
 

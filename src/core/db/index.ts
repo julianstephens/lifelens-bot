@@ -6,13 +6,12 @@ let instance: any = null;
 
 export default class DBContext {
     client: MongoClient;
-
     db: Db;
-
     collections: ICollections;
 
     private constructor() {
         this.client = new MongoClient(config.db.mongoURI);
+        console.log(`[DB] ${config.db.mongoURI}`);
         this.db = this.client.db();
         this.collections = {
             moods: this.db.collection<IMood>(config.db.collections.moods),
@@ -23,7 +22,13 @@ export default class DBContext {
     }
 
     async connect(): Promise<void> {
-        this.client = await this.client.connect();
+        try {
+            console.log("[DB] Attempting");
+            this.client = await this.client.connect();
+            console.log("[DB] Connected");
+        } catch (err) {
+            console.log("[DB] Error connecting to db", err);
+        }
     }
 
     static async init(): Promise<void> {
@@ -31,21 +36,21 @@ export default class DBContext {
             return;
         }
 
+        console.log("[DB] Connecting to db...");
         try {
             instance = new DBContext();
-            console.log("[DB] Connecting to db...");
             await instance.connect();
-            console.log("[DB] Connected");
         } catch (err) {
             console.log("[DB] Error connecting to db", err);
             throw err;
         }
+        console.log("[DB] Connected");
     }
 
-    static async getInstance(): Promise<DBContext> {
+    static getInstance(): DBContext {
         if (!instance) {
             try {
-                await DBContext.init();
+                DBContext.init();
             } catch {
                 throw Error("[DB] DB Context not initialized");
             }

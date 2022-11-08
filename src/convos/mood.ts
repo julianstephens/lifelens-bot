@@ -2,10 +2,7 @@ import moment from "moment";
 import DBContext from "../core/db/index";
 import { IMood, LensContext, LensConvo } from "../models/index";
 
-let db: DBContext;
-DBContext.getInstance().then((instance) => {
-    db = instance;
-});
+const db: DBContext = DBContext.getInstance();
 
 const mood = async (conversation: LensConvo, ctx: LensContext) => {
     await ctx.reply("How are you feeling?");

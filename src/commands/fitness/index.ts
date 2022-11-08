@@ -1,10 +1,7 @@
 import DBContext from "../../core/db/index";
 import { LensContext } from "../../models/index";
 
-let db: DBContext;
-DBContext.getInstance().then((instance) => {
-    db = instance;
-});
+const db: DBContext = DBContext.getInstance();
 
 const fitness = async (ctx: LensContext): Promise<void> => {
     const goalCursor = db.collections.weeks

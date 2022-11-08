@@ -3,10 +3,7 @@ import DBContext from "../core/db/index";
 import { anxietyKB, binaryKB, excitedKB, healthyKB } from "../keyboards/index";
 import { AnxietyOpts, FutureOpts, HealthyOpts, IEvening, LensContext, LensConvo } from "../models/index";
 
-let db: DBContext;
-DBContext.getInstance().then((instance) => {
-    db = instance;
-});
+const db: DBContext = DBContext.getInstance();
 
 const evening = async (conversation: LensConvo, ctx: LensContext) => {
     let evening: IEvening = { date: moment().startOf("d").unix() };
