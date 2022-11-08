@@ -21,7 +21,11 @@ bot.use(createConversation(evening));
 bot.use(createConversation(week));
 bot.use(commands);
 (async () => {
-    await bot.api.setMyCommands(BotCommands);
+    try {
+        await bot.api.setMyCommands(BotCommands);
+    } catch (err) {
+        console.log("[SERVER] ", err);
+    }
 })();
 bot.catch(errorHandler);
 

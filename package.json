@@ -6,9 +6,9 @@
   "scripts": {
     "build": "tsc",
     "dev": "nodemon -r tsconfig-paths/register src/index.ts",
-    "seedDur": "ts-node -r tsconfig-paths/register public/src/seedDuration.ts",
+    "seedDur": "ts-node -r tsconfig-paths/register src/seedDuration.ts",
     "lint": "eslint . --cache --ext .ts,.js",
-    "format": "prettier --write 'public/src/**/*.ts'"
+    "format": "prettier --write 'src/**/*.ts'"
   },
   "repository": {
     "type": "git",

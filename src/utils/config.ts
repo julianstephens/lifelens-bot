@@ -4,7 +4,7 @@ import path from "path";
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
 const config = {
     telegram: {
-        token: process.env.TOKEN || "xxxx",
+        token: process.env.BOT_TOKEN || "xxxx",
         webhookURL: `${process.env.WEBHOOK_DOMAIN}/api/index` || "xxxx",
         allowedUsers: process.env.ALLOWED_USERS?.split(" ") || "xxxx",
     },

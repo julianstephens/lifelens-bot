@@ -1,10 +1,9 @@
 import { Bot } from "grammy";
 import { LensContext } from "../models/index";
-import config from "./config";
 
 const production = async (bot: Bot<LensContext>): Promise<void> => {
     try {
-        await bot.api.setWebhook(config.telegram.webhookURL);
+        // await bot.api.setWebhook(config.telegram.webhookURL);
         console.log(`[SERVER] Bot starting webhook`);
     } catch (e) {
         console.error(e);
