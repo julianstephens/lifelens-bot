@@ -10,13 +10,18 @@ const config = {
     },
     db: {
         mongoURI: process.env.MONGODB_URI || "xxxx",
-        name: process.env.DB_NAME || "xxxx",
+        dataSource: process.env.MONGO_CLUSTER || "xxxx",
+        database: process.env.DB_NAME || "xxxx",
         collections: {
             moods: process.env.MOOD_COLLECTION || "xxxx",
             mornings: process.env.MORNING_COLLECTION || "xxxx",
             evenings: process.env.EVENING_COLLECTION || "xxxx",
             weeks: process.env.WEEK_COLLECTION || "xxxx",
         },
+    },
+    api: {
+        apiKey: process.env.MONGO_API_KEY || "xxxx",
+        urlEndpoint: process.env.MONGO_API_URL || "xxxx",
     },
     gcloud: {
         region: process.env.GCLOUD_REGION || "xxxx",

@@ -13,7 +13,7 @@ const mood = async (conversation: LensConvo, ctx: LensContext) => {
         date: moment().startOf("d").unix(),
         mood: text,
     };
-    await db.collections.moods?.insertOne(moodEntry);
+    await db.collections.moods?.insertOne({ document: moodEntry });
     await ctx.reply("Your mood log has been entered successfully 👍");
 };
 

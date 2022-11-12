@@ -1,6 +1,6 @@
 import { Conversation, ConversationFlavor } from "@grammyjs/conversations";
 import { Context, SessionFlavor } from "grammy";
-import { Collection } from "mongodb";
+import { MongoDBDataAPI } from "mongodb-data-api";
 
 export interface ISession {
     morning: IMorning;
@@ -12,10 +12,10 @@ export type LensContext = Context & ConversationFlavor & SessionFlavor<ISession>
 export type LensConvo = Conversation<LensContext>;
 
 export interface ICollections {
-    moods?: Collection<IMood>;
-    mornings?: Collection<IMorning>;
-    evenings?: Collection<IEvening>;
-    weeks?: Collection<IWeek>;
+    moods?: MongoDBDataAPI<IMood>;
+    mornings?: MongoDBDataAPI<IMorning>;
+    evenings?: MongoDBDataAPI<IEvening>;
+    weeks?: MongoDBDataAPI<IWeek>;
 }
 
 export interface IMood {

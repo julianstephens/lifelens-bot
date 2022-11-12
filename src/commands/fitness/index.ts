@@ -4,29 +4,30 @@ import { LensContext } from "../../models/index";
 const db: DBContext = DBContext.getInstance();
 
 const fitness = async (ctx: LensContext): Promise<void> => {
-    const goalCursor = db.collections.weeks
-        ?.find()
-        .sort({ date: -1 })
-        .limit(1)
-        .project<{ fitnessGoal: string }>({
-            _id: 0,
-            fitnessGoal: { $convert: { input: "$fitnessGoal", to: "string" } },
+    let fitnessResp = `*Your Current Fitness Status 💪*`;
+
+    db.collections.weeks
+        ?.aggregate({
+            pipeline: [{ $project: { _id: 0, fitnessGoal: 1 } }, { $sort: { date: -1 } }, { $limit: 1 }],
+        })
+        .then((res) => {
+            const goal = res.documents[0].fitnessGoal;
+            fitnessResp += `\nWeekly Goal: ${goal}`;
+        })
+        .catch((err) => {
+            console.log(`[DB] Error retrieving fitness goal from db\n${err}`);
         });
-    const goal = await goalCursor?.toArray();
-    const bodyCursor = db.collections.mornings?.find().sort({ date: -1 }).limit(1).project<{ bmi: number; weight: number }>({
-        _id: 0,
-        weight: true,
-        bmi: true,
-    });
-    const body = await bodyCursor?.toArray();
-    await ctx.reply(
-        `*Your Current Fitness Status 💪*
-  ${goal ? `Weekly Goal: ${goal[0].fitnessGoal}` : ""}
-  ${body ? `Weight: ${body[0].weight}` : ""}
-  ${body ? `BMI: ${body[0].bmi}` : ""}
-        `,
-        { parse_mode: "MarkdownV2" },
-    );
+
+    db.collections.mornings
+        ?.aggregate({
+            pipeline: [{ $project: { _id: 0, weight: 1, bmi: 1 } }, { $sort: { date: -1 } }, { $limit: 1 }],
+        })
+        .then((res) => {
+            const weight = res.documents[0].weight;
+            const bmi = res.documents[0].bmi;
+            fitnessResp += `\nWeight: ${weight}\nBMI: ${bmi}`;
+        });
+    await ctx.reply(fitnessResp, { parse_mode: "MarkdownV2" });
 };
 
 export default fitness;
