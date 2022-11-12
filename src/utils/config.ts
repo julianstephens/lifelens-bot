@@ -9,9 +9,8 @@ const config = {
         allowedUsers: process.env.ALLOWED_USERS?.split(" ") || "xxxx",
     },
     db: {
-        mongoURI: process.env.MONGODB_URI || "xxxx",
         dataSource: process.env.MONGO_CLUSTER || "xxxx",
-        database: process.env.DB_NAME || "xxxx",
+        database: process.env.MONGO_DATABASE || "xxxx",
         collections: {
             moods: process.env.MOOD_COLLECTION || "xxxx",
             mornings: process.env.MORNING_COLLECTION || "xxxx",

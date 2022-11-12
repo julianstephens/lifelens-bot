@@ -14,9 +14,7 @@ const fitness = async (ctx: LensContext): Promise<void> => {
             const goal = res.documents[0].fitnessGoal;
             fitnessResp += `\nWeekly Goal: ${goal}`;
         })
-        .catch((err) => {
-            console.log(`[DB] Error retrieving fitness goal from db\n${err}`);
-        });
+        .catch((err) => console.log(`[DB] Error retrieving fitness goal from db\n${err}`));
 
     db.collections.mornings
         ?.aggregate({
@@ -26,7 +24,9 @@ const fitness = async (ctx: LensContext): Promise<void> => {
             const weight = res.documents[0].weight;
             const bmi = res.documents[0].bmi;
             fitnessResp += `\nWeight: ${weight}\nBMI: ${bmi}`;
-        });
+        })
+        .catch((err) => console.log(`[DB] Error retrieving fitness goal from db\n${err}`));
+
     await ctx.reply(fitnessResp, { parse_mode: "MarkdownV2" });
 };
 
