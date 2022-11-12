@@ -1,6 +1,6 @@
 import { ICollections, IEvening, IMood, IMorning, IWeek } from "../../models/index";
 import config from "../../utils/config";
-import { MongoDBDataAPI } from "../../utils/mongodb-data-api";
+import { MongoDBDataAPI } from "../../utils/mongodb-data-api/dist/mongodb-data-api.esm";
 
 let instance: any = null;
 
