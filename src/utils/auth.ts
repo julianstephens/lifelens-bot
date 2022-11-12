@@ -7,7 +7,7 @@ const auth: Middleware<LensContext> = async (ctx: LensContext, next: any) => {
 
     const user = ctx.from?.id;
 
-    if (user && config.telegram.allowedUsers.includes(user + "")) return next();
+    if (user && config.telegram.allowedUsers.includes(`${user}`)) return next();
 
     await ctx.reply(`User${user ? ` (${user})` : ""} is not allowed.`);
 };
