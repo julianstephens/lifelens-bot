@@ -11,21 +11,23 @@ const fitness = async (ctx: LensContext): Promise<void> => {
             pipeline: [{ $project: { _id: 0, fitnessGoal: 1 } }, { $sort: { date: -1 } }, { $limit: 1 }],
         })
         .then((res) => {
+            console.log(res);
             const goal = res.documents[0].fitnessGoal;
             fitnessResp += `\nWeekly Goal: ${goal}`;
         })
-        .catch((err) => console.log(`[DB] Error retrieving fitness goal from db\n${err}`));
+        .catch((err) => console.log("[DB] Error retrieving fitness goal from db\n", err));
 
     db.collections.mornings
         ?.aggregate({
             pipeline: [{ $project: { _id: 0, weight: 1, bmi: 1 } }, { $sort: { date: -1 } }, { $limit: 1 }],
         })
         .then((res) => {
+            console.log(res);
             const weight = res.documents[0].weight;
             const bmi = res.documents[0].bmi;
             fitnessResp += `\nWeight: ${weight}\nBMI: ${bmi}`;
         })
-        .catch((err) => console.log(`[DB] Error retrieving fitness goal from db\n${err}`));
+        .catch((err) => console.log("[DB] Error retrieving weight and/or bmi from db\n", err));
 
     await ctx.reply(fitnessResp, { parse_mode: "MarkdownV2" });
 };

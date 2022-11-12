@@ -17,15 +17,10 @@ const config = {
             evenings: process.env.EVENING_COLLECTION || "xxxx",
             weeks: process.env.WEEK_COLLECTION || "xxxx",
         },
-    },
-    api: {
-        apiKey: process.env.MONGO_API_KEY || "xxxx",
-        urlEndpoint: process.env.MONGO_API_URL || "xxxx",
-    },
-    gcloud: {
-        region: process.env.GCLOUD_REGION || "xxxx",
-        projectId: process.env.GCLOUD_PROJECT || "xxxx",
-        functionTarget: process.env.FUNCTION_TARGET || "xxxx",
+        api: {
+            apiKey: process.env.MONGO_API_KEY || "xxxx",
+            urlEndpoint: process.env.MONGO_API_URL || "xxxx",
+        },
     },
     isProduction: process.env.NODE_ENV === "production",
 };

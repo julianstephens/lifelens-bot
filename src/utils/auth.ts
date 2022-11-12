@@ -3,7 +3,7 @@ import { LensContext } from "../models/index";
 import config from "./config";
 
 const auth: Middleware<LensContext> = async (ctx: LensContext, next: any) => {
-    console.log("User attempted to access bot:\n", ctx.from);
+    console.log("[SERVER] User attempted to access bot:\n", ctx.from);
 
     const user = ctx.from?.id;
 
