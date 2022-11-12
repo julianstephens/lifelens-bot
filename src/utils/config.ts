@@ -9,7 +9,7 @@ const config = {
         allowedUsers: process.env.ALLOWED_USERS?.split(" ") || "xxxx",
     },
     db: {
-        mongoURI: process.env.MONGO_URI || "xxxx",
+        mongoURI: process.env.MONGODB_URI || "xxxx",
         name: process.env.DB_NAME || "xxxx",
         collections: {
             moods: process.env.MOOD_COLLECTION || "xxxx",
