@@ -11,7 +11,7 @@ export default class DBContext {
 
     private constructor() {
         this.client = new MongoClient(config.db.mongoURI);
-        console.log(`[DB] ${config.db.mongoURI}`);
+        console.log(`[DB] URI ${config.db.mongoURI}`);
         this.db = this.client.db();
         this.collections = {
             moods: this.db.collection<IMood>(config.db.collections.moods),
@@ -22,13 +22,7 @@ export default class DBContext {
     }
 
     async connect(): Promise<void> {
-        try {
-            console.log("[DB] Attempting");
-            this.client = await this.client.connect();
-            console.log("[DB] Connected");
-        } catch (err) {
-            console.log("[DB] Error connecting to db", err);
-        }
+        this.client = await this.client.connect();
     }
 
     static async init(): Promise<void> {
