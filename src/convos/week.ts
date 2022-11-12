@@ -43,6 +43,7 @@ const week = async (conversation: LensConvo, ctx: LensContext) => {
     weekEntry.newPlace = newPlace;
 
     await db.collections.weeks?.insertOne({ document: weekEntry });
+    console.log("[DB] Inserted week entry\n", weekEntry);
     await ctx.reply("Thanks for taking the time to reflect 💖 Your entry has been saved.");
 };
 

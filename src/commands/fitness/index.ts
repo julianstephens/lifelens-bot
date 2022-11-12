@@ -6,28 +6,21 @@ const db: DBContext = DBContext.getInstance();
 const fitness = async (ctx: LensContext): Promise<void> => {
     let fitnessResp = `*Your Current Fitness Status 💪*`;
 
-    db.collections.weeks
-        ?.aggregate({
-            pipeline: [{ $project: { _id: 0, fitnessGoal: 1 } }, { $sort: { date: -1 } }, { $limit: 1 }],
-        })
-        .then((res) => {
-            console.log(res);
-            const goal = res.documents[0].fitnessGoal;
-            fitnessResp += `\nWeekly Goal: ${goal}`;
-        })
-        .catch((err) => console.log("[DB] Error retrieving fitness goal from db\n", err));
+    const goal = await db.collections.weeks?.aggregate({
+        pipeline: [{ $project: { _id: 0, fitnessGoal: 1 } }, { $sort: { date: -1 } }, { $limit: 1 }],
+    });
+    if (goal && goal.documents) {
+        fitnessResp += `\nWeekly Goal: ${goal.documents[0]?.fitnessGoal}`;
+        console.log("[DB] Retrieved\n", goal.documents[0]);
+    }
 
-    db.collections.mornings
-        ?.aggregate({
-            pipeline: [{ $project: { _id: 0, weight: 1, bmi: 1 } }, { $sort: { date: -1 } }, { $limit: 1 }],
-        })
-        .then((res) => {
-            console.log(res);
-            const weight = res.documents[0].weight;
-            const bmi = res.documents[0].bmi;
-            fitnessResp += `\nWeight: ${weight}\nBMI: ${bmi}`;
-        })
-        .catch((err) => console.log("[DB] Error retrieving weight and/or bmi from db\n", err));
+    const health = await db.collections.mornings?.aggregate({
+        pipeline: [{ $project: { _id: 0, weight: 1, bmi: 1 } }, { $sort: { date: -1 } }, { $limit: 1 }],
+    });
+    if (health && health.documents) {
+        fitnessResp += `\nWeight: ${health.documents[0]?.weight}\nBMI: ${health.documents[0]?.bmi}`;
+        console.log("[DB] Retrieved\n", health.documents[0]);
+    }
 
     await ctx.reply(fitnessResp, { parse_mode: "MarkdownV2" });
 };

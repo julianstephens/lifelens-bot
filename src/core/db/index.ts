@@ -37,6 +37,18 @@ export default class DBContext {
             try {
                 console.log("[DB] Creating data APIs");
                 instance = new DBContext();
+                const ping = new MongoDBDataAPI(config.db.api, {
+                    dataSource: config.db.dataSource,
+                    database: config.db.database,
+                    collection: "ping",
+                });
+                ping.findOne()
+                    .then((res) => {
+                        if (!res || !res.document) throw Error();
+                    })
+                    .catch((err) => {
+                        throw err;
+                    });
                 console.log("[DB] Connected");
             } catch (err) {
                 console.log("[DB] Something went wrong creating the DB Context");

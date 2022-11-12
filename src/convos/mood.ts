@@ -14,6 +14,7 @@ const mood = async (conversation: LensConvo, ctx: LensContext) => {
         mood: text,
     };
     await db.collections.moods?.insertOne({ document: moodEntry });
+    console.log("[DB] Inserted mood entry\n", moodEntry);
     await ctx.reply("Your mood log has been entered successfully 👍");
 };
 
