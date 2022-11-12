@@ -1,6 +1,6 @@
 import { Conversation, ConversationFlavor } from "@grammyjs/conversations";
 import { Context, SessionFlavor } from "grammy";
-import { MongoDBDataAPI } from "../utils/mongodb-data-api";
+import { MongoDBDataAPI } from "../utils/mongodb-data-api/src/index";
 
 export interface ISession {
     morning: IMorning;
