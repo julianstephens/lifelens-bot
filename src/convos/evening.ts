@@ -61,7 +61,7 @@ const evening = async (conversation: LensConvo, ctx: LensContext) => {
     eveningEntry.excited = FutureOpts[excited!];
 
     await db.collections.evenings?.insertOne({ document: eveningEntry });
-    console.log("[DB] Inserted evening entry\n", eveningEntry);
+    console.log("[DB] Inserted evening entry");
     await ctx.reply("Your entry has been saved. Have a great night 💤");
 };
 

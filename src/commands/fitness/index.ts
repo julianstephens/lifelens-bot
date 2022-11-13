@@ -11,7 +11,7 @@ const fitness = async (ctx: LensContext): Promise<void> => {
     });
     if (goal && goal.documents) {
         fitnessResp += `\nWeekly Goal: ${goal.documents[0]?.fitnessGoal}`;
-        console.log("[DB] Retrieved\n", goal.documents[0]);
+        console.log("[DB] Retrieved");
     }
 
     const health = await db.collections.mornings?.aggregate({
@@ -19,7 +19,7 @@ const fitness = async (ctx: LensContext): Promise<void> => {
     });
     if (health && health.documents) {
         fitnessResp += `\nWeight: ${health.documents[0]?.weight}\nBMI: ${health.documents[0]?.bmi}`;
-        console.log("[DB] Retrieved\n", health.documents[0]);
+        console.log("[DB] Retrieved");
     }
 
     await ctx.reply(fitnessResp, { parse_mode: "MarkdownV2" });
