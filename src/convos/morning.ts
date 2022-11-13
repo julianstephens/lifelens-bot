@@ -48,7 +48,7 @@ const morning = async (conversation: LensConvo, ctx: LensContext) => {
     conversation.log("Added bmi:\n", morningEntry);
 
     await conversation.external(() => db.collections.mornings?.insertOne({ document: morningEntry }));
-    console.log("[DB] Inserted morning entry\n", morningEntry);
+    console.log("[DB] Inserted morning entry");
     await ctx.reply("Awesome! Your morning journal has been saved. Have a great day 💯");
 };
 

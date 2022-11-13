@@ -4,7 +4,7 @@ export default function checkEnv(config: any) {
             checkEnv(config[k]);
         }
         if (typeof config[k] === "string" && config[k] === "xxxx") {
-            throw Error("[SERVER] Env var ${k} not set");
+            throw Error(`[SERVER] Env var ${k} not set`);
         }
     });
 }
