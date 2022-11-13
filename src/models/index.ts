@@ -40,7 +40,6 @@ export interface IEvening extends IEntry {
     veggies?: boolean;
     anxiety?: AnxietyOpts;
     outdoors?: boolean;
-    smoke?: string;
     focus?: string;
     excited?: FutureOpts;
 }
@@ -49,8 +48,6 @@ export interface IWeek extends IEntry {
     fitnessEffort?: boolean;
     fitnessGoal?: string;
     lifeProgress?: ProgressOpts;
-    computerUsage?: number;
-    phoneUsage?: number;
     familyTime?: boolean;
     friendTime?: boolean;
     intellectualFulfill?: boolean;

@@ -47,10 +47,6 @@ const evening = async (conversation: LensConvo, ctx: LensContext) => {
     const outside = ctx.callbackQuery?.data === "positive" ? true : false;
     eveningEntry.outdoors = outside;
 
-    await ctx.reply("What time did you start smoking?");
-    update = await conversation.waitFor("message:text");
-    eveningEntry.smoke = update.message.text;
-
     await ctx.reply("What was your main focus for today?");
     update = await conversation.waitFor("message:text");
     eveningEntry.focus = update.message.text;
