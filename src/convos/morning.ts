@@ -7,7 +7,7 @@ import { BedTimeOpts, IMorning, LensContext, LensConvo, WakeTimeOpts } from "../
 const db: DBContext = DBContext.getInstance();
 
 const morning = async (conversation: LensConvo, ctx: LensContext) => {
-    let morningEntry: IMorning = { date: moment().startOf("d").unix() };
+    let morningEntry: IMorning = { date: moment().startOf("d").unix(), uid: ctx.from?.id ?? -1 };
 
     // Save sleep quality resp
     await ctx.reply("Good morning 👋 Did you sleep well?", { reply_markup: binaryKB });
@@ -47,7 +47,7 @@ const morning = async (conversation: LensConvo, ctx: LensContext) => {
     morningEntry.bmi = Number.parseInt(update.message.text, 10);
     conversation.log("Added bmi:\n", morningEntry);
 
-    await db.collections.mornings?.insertOne({ document: morningEntry });
+    await conversation.external(() => db.collections.mornings?.insertOne({ document: morningEntry }));
     console.log("[DB] Inserted morning entry\n", morningEntry);
     await ctx.reply("Awesome! Your morning journal has been saved. Have a great day 💯");
 };

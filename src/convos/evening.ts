@@ -6,7 +6,7 @@ import { AnxietyOpts, FutureOpts, HealthyOpts, IEvening, LensContext, LensConvo 
 const db: DBContext = DBContext.getInstance();
 
 const evening = async (conversation: LensConvo, ctx: LensContext) => {
-    let eveningEntry: IEvening = { date: moment().startOf("d").unix() };
+    let eveningEntry: IEvening = { date: moment().startOf("d").unix(), uid: ctx.from?.id ?? -1 };
 
     await ctx.reply("Good evening! How healthy do you feel today?", { reply_markup: healthyKB });
     ctx = await conversation.wait();

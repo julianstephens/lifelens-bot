@@ -1,14 +1,8 @@
 import { Conversation, ConversationFlavor } from "@grammyjs/conversations";
-import { Context, SessionFlavor } from "grammy";
+import { Context } from "grammy";
 import { MongoDBDataAPI } from "../utils/mongodb-data-api/src/index";
 
-export interface ISession {
-    morning: IMorning;
-    evening: IEvening;
-    week: IWeek;
-}
-
-export type LensContext = Context & ConversationFlavor & SessionFlavor<ISession>;
+export type LensContext = Context & ConversationFlavor;
 export type LensConvo = Conversation<LensContext>;
 
 export interface ICollections {
@@ -18,13 +12,16 @@ export interface ICollections {
     weeks?: MongoDBDataAPI<IWeek>;
 }
 
-export interface IMood {
+export interface IEntry {
     date: number;
+    uid: number;
+}
+
+export interface IMood extends IEntry {
     mood: string;
 }
 
-export interface IMorning {
-    date?: number;
+export interface IMorning extends IEntry {
     sleepDuration?: string;
     sleepQuality?: boolean;
     fallingAsleep?: boolean;
@@ -34,8 +31,7 @@ export interface IMorning {
     bmi?: number;
 }
 
-export interface IEvening {
-    date?: number;
+export interface IEvening extends IEntry {
     healthy?: HealthyOpts;
     exercise?: boolean;
     meditate?: boolean;
@@ -49,8 +45,7 @@ export interface IEvening {
     excited?: FutureOpts;
 }
 
-export interface IWeek {
-    date?: number;
+export interface IWeek extends IEntry {
     fitnessEffort?: boolean;
     fitnessGoal?: string;
     lifeProgress?: ProgressOpts;

@@ -11,6 +11,7 @@ const mood = async (conversation: LensConvo, ctx: LensContext) => {
     } = await conversation.waitFor("message:text");
     const moodEntry: IMood = {
         date: moment().startOf("d").unix(),
+        uid: ctx.from?.id ?? -1,
         mood: text,
     };
     await db.collections.moods?.insertOne({ document: moodEntry });
