@@ -61,6 +61,7 @@ export enum Commands {
     eveningJournal = "evening",
     weekJournal = "week",
     fitness = "fitness",
+    cancel = "cancel",
 }
 
 export const BotCommands = [
@@ -87,6 +88,10 @@ export const BotCommands = [
     {
         command: Commands.fitness,
         description: "view fitness status",
+    },
+    {
+        command: Commands.cancel,
+        description: "exit command",
     },
 ];
 
