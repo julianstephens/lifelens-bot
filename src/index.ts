@@ -8,10 +8,12 @@ import week from "./convos/week";
 import bot from "./core/bot/index";
 import { BotCommands } from "./models";
 import auth from "./utils/auth";
+import checkEnv from "./utils/check-env";
 import config from "./utils/config";
 import errorHandler from "./utils/error-handler";
 import { development, production } from "./utils/launch";
 
+checkEnv(config);
 bot.use(auth);
 bot.use(session({ initial: () => ({}) }));
 bot.use(conversations());

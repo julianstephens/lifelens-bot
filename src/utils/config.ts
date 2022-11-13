@@ -7,6 +7,11 @@ const config = {
         token: process.env.BOT_TOKEN || "xxxx",
         webhookURL: `${process.env.WEBHOOK_DOMAIN}/api/index` || "xxxx",
         allowedUsers: process.env.ALLOWED_USERS?.split(" ") || "xxxx",
+        bot: {
+            id: process.env.BOT_ID || "xxxx",
+            firstName: process.env.BOT_NAME || "xxxx",
+            username: process.env.BOT_USERNAME || "xxxx",
+        },
     },
     db: {
         dataSource: process.env.MONGO_CLUSTER || "xxxx",
