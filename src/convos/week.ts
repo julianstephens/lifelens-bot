@@ -6,7 +6,7 @@ import { IWeek, LensContext, LensConvo, ProgressOpts } from "../models/index";
 const db: DBContext = DBContext.getInstance();
 
 const week = async (conversation: LensConvo, ctx: LensContext) => {
-    let weekEntry: IWeek = { date: moment().startOf("w").unix() };
+    let weekEntry: IWeek = { date: moment().startOf("w").unix(), uid: ctx.from?.id ?? -1 };
 
     await ctx.reply("Time for the weekly review 🤓\nDid you make a genuine effort at your fitness goal this week?", { reply_markup: binaryKB });
     ctx = await conversation.wait();
