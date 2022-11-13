@@ -58,6 +58,7 @@ export interface IWeek extends IEntry {
 }
 
 export enum Commands {
+    help = "help",
     mood = "mood",
     morningJournal = "morning",
     eveningJournal = "evening",
@@ -66,6 +67,10 @@ export enum Commands {
 }
 
 export const BotCommands = [
+    {
+        command: Commands.help,
+        description: "list available commands",
+    },
     {
         command: Commands.mood,
         description: "add a mood log entry",
