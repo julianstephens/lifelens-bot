@@ -18,7 +18,7 @@ const fitness = async (ctx: LensContext): Promise<void> => {
         pipeline: [{ $project: { _id: 0, weight: 1, bmi: 1 } }, { $sort: { date: -1 } }, { $limit: 1 }],
     });
     if (health && health.documents) {
-        fitnessResp += `\nWeight: ${health.documents[0]?.weight}\nBMI: ${health.documents[0]?.bmi}`;
+        fitnessResp += `\nWeight: ${health.documents[0]?.weight} lbs\nBMI: ${health.documents[0]?.bmi}`;
         console.log("[DB] Retrieved");
     }
 

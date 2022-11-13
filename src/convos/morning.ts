@@ -38,13 +38,13 @@ const morning = async (conversation: LensConvo, ctx: LensContext) => {
     // Save weight resp
     await ctx.reply("How much do you weigh this morning?");
     let update = await conversation.waitFor("message:text");
-    morningEntry.weight = Number.parseInt(update.message.text, 10);
+    morningEntry.weight = Number.parseFloat(update.message.text);
     conversation.log("Added weight:\n", morningEntry);
 
     // Save bmi resp
     await ctx.reply("Got it. What was your BMI?");
     update = await conversation.waitFor("message:text");
-    morningEntry.bmi = Number.parseInt(update.message.text, 10);
+    morningEntry.bmi = Number.parseFloat(update.message.text);
     conversation.log("Added bmi:\n", morningEntry);
 
     await conversation.external(() => db.collections.mornings?.insertOne({ document: morningEntry }));
