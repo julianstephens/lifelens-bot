@@ -60,6 +60,7 @@ export enum Commands {
     morningJournal = "morning",
     eveningJournal = "evening",
     weekJournal = "week",
+    weather = "weather",
     fitness = "fitness",
     warmup = "warmup",
     cancel = "cancel",
@@ -85,6 +86,10 @@ export const BotCommands = [
     {
         command: Commands.weekJournal,
         description: "add week journal",
+    },
+    {
+        command: Commands.weather,
+        description: "view weather forecast",
     },
     {
         command: Commands.fitness,

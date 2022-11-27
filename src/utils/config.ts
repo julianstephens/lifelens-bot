@@ -27,6 +27,11 @@ const config = {
             urlEndpoint: process.env.MONGO_API_URL || "xxxx",
         },
     },
+    weather: {
+        apiKey: process.env.OPEN_WEATHER_API_KEY || "xxxx",
+        lat: process.env.OPEN_WEATHER_API_LAT || "xxxx",
+        lon: process.env.OPEN_WEATHER_API_LON || "xxxx",
+    },
     isProduction: process.env.NODE_ENV === "production",
 };
 
