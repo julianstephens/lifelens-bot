@@ -64,6 +64,7 @@ export enum Commands {
     eveningJournal = "evening",
     weekJournal = "week",
     fitness = "fitness",
+    warmup = "warmup",
 }
 
 export const BotCommands = [
@@ -90,6 +91,10 @@ export const BotCommands = [
     {
         command: Commands.fitness,
         description: "view fitness status",
+    },
+    {
+        command: Commands.warmup,
+        description: "view warmup routine",
     },
 ];
 
