@@ -17,6 +17,10 @@ checkEnv(config);
 bot.use(auth);
 bot.use(session({ initial: () => ({}) }));
 bot.use(conversations());
+bot.command("cancel", async (ctx) => {
+    await ctx.conversation.exit();
+    await ctx.reply("Leaving.");
+});
 bot.use(createConversation(mood));
 bot.use(createConversation(morning));
 bot.use(createConversation(evening));
