@@ -153,3 +153,13 @@ export enum IntellectOpts {
     LITTLE = "A little",
     VERY = "Very fulfilled",
 }
+
+export const WorkoutPlan = [
+    "4x6s or Limit Bouldering \\(Gym\\)",
+    "Yoga \\(Home\\)",
+    "Conditioning & Movement Practice \\(Gym\\)",
+    "Yoga & Core \\(Home\\)",
+    "Rest",
+    "Repeaters \\(Gym\\)",
+    "Yoga \\(Home\\)",
+];

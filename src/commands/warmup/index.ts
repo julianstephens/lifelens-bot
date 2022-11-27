@@ -5,9 +5,11 @@ import { LensContext } from "../../models/index";
 const db: DBContext = DBContext.getInstance();
 
 const warmup = async (ctx: LensContext): Promise<void> => {
-    let warmupResp = `*Warmup Routine 🧗‍♂️*`;
-    warmupResp += `
-  \\* 10min jogging
+    let warmupResp = `*Warmup Routine 🧗‍♂️*
+\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-\\-
+`;
+
+    warmupResp += `  \\* 10min jogging
   \\* Updog
   \\* Side lunges
   \\* Upper trunk rotations
